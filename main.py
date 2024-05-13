@@ -9,7 +9,6 @@ customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "gre
 class MainWindow(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        super().__init__()
 
         # configure window
         self.title("Exxpense Tracker App")
