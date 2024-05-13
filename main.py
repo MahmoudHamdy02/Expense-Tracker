@@ -43,7 +43,7 @@ class MainWindow(customtkinter.CTk):
                                                                command=self.change_scaling_event)
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
-        self.loginFrame = PersonDashboard(self, None)
+        self.loginFrame = Login(self)
         self.loginFrame.grid(row=0, column=1, rowspan=4, sticky="nsew")
 
 
