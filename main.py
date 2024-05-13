@@ -2,6 +2,7 @@ from GUI.login import Login
 import tkinter
 import tkinter.messagebox
 import customtkinter
+from GUI.personDashboard import PersonDashboard
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -42,7 +43,7 @@ class MainWindow(customtkinter.CTk):
                                                                command=self.change_scaling_event)
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
-        self.loginFrame = Login(self)
+        self.loginFrame = PersonDashboard(self, None)
         self.loginFrame.grid(row=0, column=1, rowspan=4, sticky="nsew")
 
 
