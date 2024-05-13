@@ -6,9 +6,6 @@ class Login(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
 
-        self._border_color = "green"
-        self._border_width = 5
-
         frame = ctk.CTkFrame(self)
         frame.place(relx=0.5,rely=0.5,anchor="c")
 
