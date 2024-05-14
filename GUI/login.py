@@ -1,6 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter as ctk
+from GUI.personDashboard import PersonDashboard
 
 class Login(ctk.CTkFrame):
     def __init__(self, master):
@@ -29,6 +30,10 @@ class Login(ctk.CTkFrame):
     
     def login(self):
         print("login")
+        self.destroy()
+        self.master.dashboard = PersonDashboard(self.master, None)
+        self.master.dashboard.grid(row=0, column=1, rowspan=4, sticky="nsew")
+
     
     def signup(self):
         print("sign up")
