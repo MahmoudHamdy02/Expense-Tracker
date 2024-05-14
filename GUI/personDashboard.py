@@ -1,5 +1,3 @@
-import tkinter
-import tkinter.messagebox
 import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -13,6 +11,7 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         super().__init__(master)
 
         self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
 
         self.summaryFrame = ctk.CTkFrame(self, height=100)
         self.summaryFrame.grid(row=0, column=0, sticky="nsew", padx = (10,10))
@@ -61,6 +60,47 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         canvas = FigureCanvasTkAgg(fig, master=self)
         canvas.draw()
         canvas.get_tk_widget().grid(row=1, column=0, sticky="nsew", padx = (10,10))
+
+        recent_expenses = [
+            {"date": "11/30/2017", "category": "Food", "payment": "Debit Card", "description": "Palmetto Cheese, Mint julep", "amount": "$6", "type": "minus"},
+            {"date": "11/30/2017", "category": "Transportation", "payment": "Debit Card", "description": "Other vehicle expenses", "amount": "$7", "type": "minus"},
+            {"date": "11/30/2017", "category": "Housing", "payment": "Credit Card", "description": "Laundry and cleaning supplies", "amount": "$20", "type": "minus"},
+            {"date": "11/30/2017", "category": "Extra income", "payment": "Cash", "description": "Income from Sale", "amount": "$110", "type": "plus"},
+            {"date": "11/30/2017", "category": "Food", "payment": "Credit Card", "description": "Muffuletta sandwich, Mint julep", "amount": "$10", "type": "minus"}
+        ]
+        # Define the column headers
+        headers = ["Date", "Category", "Payment", "Description", "Amount"]
+
+        # Create a new frame for the expenses
+        expenses_frame = ctk.CTkFrame(self)
+        expenses_frame.grid(row=2, column=0, sticky="nsw", padx=(10,10))
+        expenses_frame.grid_columnconfigure((0, 1, 2, 3, 4), weight=1)
+        expensesLabel = ctk.CTkLabel(expenses_frame, text="Recent Expenses: ", font=ctk.CTkFont(size=20, weight="bold"))
+        expensesLabel.grid(row=0, column=0, padx=10, pady=(10, 10))
+        # Add the column headers to the expenses frame
+        for i, header in enumerate(headers):
+            header_label = ctk.CTkLabel(expenses_frame, text=header, font=ctk.CTkFont(size=15, weight="bold"))
+            header_label.grid(row=1, column=i, padx=10, pady=10)
+
+        # Add the recent expenses to the expenses frame
+        for i, expense in enumerate(recent_expenses, start=2):
+            date_label = ctk.CTkLabel(expenses_frame, text=expense['date'])
+            date_label.grid(row=i, column=0, padx=10)
+
+            category_label = ctk.CTkLabel(expenses_frame, text=expense['category'])
+            category_label.grid(row=i, column=1, padx=10)
+
+            payment_label = ctk.CTkLabel(expenses_frame, text=expense['payment'])
+            payment_label.grid(row=i, column=2, padx=10)
+
+            description_label = ctk.CTkLabel(expenses_frame, text=expense['description'])
+            description_label.grid(row=i, column=3, padx=10)
+
+            # Set the color of the amount label based on the 'type' field
+            amount_color = "green" if expense['type'] == "plus" else "red"
+            amount_label = ctk.CTkLabel(expenses_frame, text=expense['amount'], text_color=amount_color)
+            amount_label.grid(row=i, column=4, padx=10)
+
 
     def sidebar_button_event(self):
         print("sidebar_button click")
