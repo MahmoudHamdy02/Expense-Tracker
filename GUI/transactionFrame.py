@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from PIL import Image
 from CTkMessagebox import CTkMessagebox
+import os
 
 class TransactionFrame(ctk.CTkToplevel):
     def __init__(self, master):
@@ -22,7 +23,7 @@ class TransactionFrame(ctk.CTkToplevel):
         # Create a frame for the buttons
         self.button_frame = ctk.CTkFrame(self.initial_frame, fg_color="transparent")
         self.button_frame.pack(pady=10)
-        sendImage = ctk.CTkImage(light_image=Image.open("GUI\images\money-send.png"))
+        sendImage = ctk.CTkImage(light_image=Image.open(os.path.join("GUI", "images", "money-send.png")))
         # Create a send button
         self.send_button = ctk.CTkButton(
             self.button_frame,
@@ -33,7 +34,7 @@ class TransactionFrame(ctk.CTkToplevel):
             width=100
             )
         self.send_button.pack(side="left", padx=20)
-        recieveImage = ctk.CTkImage(light_image=Image.open("GUI\images\money-recive.png"))
+        recieveImage = ctk.CTkImage(light_image=Image.open(os.path.join("GUI", "images", "money-recive.png")))
         # Create a receive button
         self.receive_button = ctk.CTkButton(
             self.button_frame, 
