@@ -2,6 +2,7 @@ import tkinter
 import tkinter.messagebox
 import customtkinter as ctk
 from GUI.personDashboard import PersonDashboard
+from GUI.companyDashboard import CompanyDashboard
 
 class Login(ctk.CTkFrame):
     def __init__(self, master):
@@ -10,8 +11,8 @@ class Login(ctk.CTkFrame):
         frame = ctk.CTkFrame(self)
         frame.place(relx=0.5,rely=0.5,anchor="c")
 
-        email_input = ctk.CTkEntry(frame, placeholder_text="email@test.com")
-        email_input.pack(pady=5, expand=True, fill="none")
+        self.email_input = ctk.CTkEntry(frame, placeholder_text="email@test.com")
+        self.email_input.pack(pady=5, expand=True, fill="none")
 
         password_input = ctk.CTkEntry(frame, placeholder_text="Password", show="*")
         password_input.pack(pady=5)
@@ -29,9 +30,14 @@ class Login(ctk.CTkFrame):
         companySignUpButton.pack(side="left", padx=10)
     
     def login(self):
-        print("login")
+        email = self.email_input.get()
+        if email == "" or email is None:
+            return
         self.destroy()
-        self.master.dashboard = PersonDashboard(self.master, None)
+        if "company" in email:
+            self.master.dashboard = CompanyDashboard(self.master)
+        else:
+            self.master.dashboard = PersonDashboard(self.master, None)
         self.master.dashboard.grid(row=0, column=1, rowspan=4, sticky="nsew")
 
     
