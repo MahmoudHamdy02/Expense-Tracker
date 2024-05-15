@@ -1,0 +1,100 @@
+1.
+As a user,
+I want to log in,
+So that I can see my expense tracker dashboard.
+- Username is at least 6 characters
+- Password must contain at least one number and one special character
+
+2.
+As a user,
+I want to add expenses,
+So that I can track my spending.
+- Each expense has a category, amount, date, and notes
+
+3.
+As a person,
+I want to set my salary,
+So that my balance automatically updates every month.
+- Balance can be updated every two weeks or one month
+- Salary must be positive number
+
+4.
+As a user,
+I want to set spending limits,
+So that I can manage my spending budget.
+- Each expense category can have a separate limit
+
+5.
+As a user,
+I want to add a new category,
+So that I can track expenses more accurately.
+- New category name can't be a duplicate
+
+6.
+As a user,
+I want to add receive budget alerts,
+So that I can be notified when I approach my spending limits.
+- Alerts can be notifications or emails
+
+7.
+As a user,
+I want to view monthly reports,
+So that I can view statistics and analytics of the month's expenses.
+- Data is plotted in a pie chart
+- Chart contains all categories
+
+8.
+As a user,
+I want to view my transactions,
+So that I can track money I sent or received.
+- Each transaction has a date, amount, sender, recipient and payment method
+
+9.
+As a company,
+I want to view salaries,
+So that I can view and manage my employees and their salary.
+- Each employee has a name, salary and role
+
+10.
+As a company,
+I want to view projects,
+So that I can add or edit projects.
+- Each project has a department, budget, and employees
+
+11.
+As a user,
+I want to sign up,
+So that I can create an expense tracker account.
+- Email must be valid
+- Password must be at least 8 characters
+- Must select user or company account
+
+12.
+As a company,
+I want to pay salaries,
+So that I can send salaries to employees.
+- Payments go through a bank or payment provider
+- Payment is tracked as an expense for the company
+- payment is tracker as a received transaction for the user
+
+13.
+As a company,
+I want to get quarterly reports,
+So that I can view finance analytics.
+- View quarter's revenue and expenses
+- View salary paid for all employees
+- View budget for active projects
+
+14.
+As a user,
+I want to sync my bank accounts,
+So that my transactions are automatically imported into the app.
+- Supports integration with major banks
+- Ensures data security and encryption
+
+15.
+As a user,
+I want to customize my dashboard,
+So that I can prioritize the information that is most important to me.
+- Drag-and-drop functionality for dashboard widgets
+- Option to hide or show specific sections
