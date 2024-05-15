@@ -65,6 +65,40 @@ class CompanyDashboard(ctk.CTkScrollableFrame):
         canvas.draw()
         canvas.get_tk_widget().grid(row=1, column=0, sticky="nsew", padx = (10,10))
 
+        employees = [
+                {"name": "Alice Johnson", "department": "Marketing", "salary": "$1500"},
+                {"name": "David Garcia", "department": "Finance", "salary": "$1800"},
+                {"name": "Emily Wang", "department": "Human Resources", "salary": "$1600"},
+                {"name": "Michael Brown", "department": "Operations", "salary": "$1700"},
+                {"name": "Sophia Martinez", "department": "Customer Support", "salary": "$1400"}
+        ]
+
+        # Define the column headers
+        headers = ["Employee name", "Department", "Salary"]
+
+        # Create a new frame for the expenses
+        employees_frame = ctk.CTkFrame(self)
+        employees_frame.grid(row=2, column=0, sticky="nsw", padx=(10,10))
+        employees_frame.grid_columnconfigure((0, 1, 2, 3, 4), weight=1)
+        employeesLabel = ctk.CTkLabel(employees_frame, text="Employees: ", font=ctk.CTkFont(size=20, weight="bold"))
+        employeesLabel.grid(row=0, column=0, padx=10, pady=(10, 10))
+        # Add the column headers to the employees frame
+        for i, header in enumerate(headers):
+            header_label = ctk.CTkLabel(employees_frame, text=header, font=ctk.CTkFont(size=15, weight="bold"))
+            header_label.grid(row=1, column=i, padx=10, pady=10)
+
+        # Add the recent employees to the employees frame
+        for i, expense in enumerate(employees, start=2):
+            name_label = ctk.CTkLabel(employees_frame, text=expense['name'])
+            name_label.grid(row=i, column=0, padx=10)
+
+            department_label = ctk.CTkLabel(employees_frame, text=expense['department'])
+            department_label.grid(row=i, column=1, padx=10)
+
+            salary_label = ctk.CTkLabel(employees_frame, text=expense['salary'])
+            salary_label.grid(row=i, column=2, padx=10)
+
+
         recent_expenses = [
             {"date": "05/01/2024", "category": "Office Supplies", "payment": "Debit Card", "description": "Printer toner cartridges", "amount": "$300", "type": "minus"},
             {"date": "05/05/2024", "category": "Software Subscription", "payment": "Credit Card", "description": "Annual Adobe Creative Cloud subscription", "amount": "$600", "type": "minus"},
@@ -77,7 +111,7 @@ class CompanyDashboard(ctk.CTkScrollableFrame):
 
         # Create a new frame for the expenses
         expenses_frame = ctk.CTkFrame(self)
-        expenses_frame.grid(row=2, column=0, sticky="nsw", padx=(10,10))
+        expenses_frame.grid(row=3, column=0, sticky="nsw", padx=(10,10))
         expenses_frame.grid_columnconfigure((0, 1, 2, 3, 4), weight=1)
         expensesLabel = ctk.CTkLabel(expenses_frame, text="Recent Expenses: ", font=ctk.CTkFont(size=20, weight="bold"))
         expensesLabel.grid(row=0, column=0, padx=10, pady=(10, 10))
