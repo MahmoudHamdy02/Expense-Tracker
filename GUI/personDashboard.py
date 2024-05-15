@@ -3,6 +3,7 @@ import tkinter.messagebox
 import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from GUI.transactionFrame import TransactionFrame
 
 ctk.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 ctk.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -23,7 +24,7 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
         self.sidebar_button_1 = ctk.CTkButton(master.sidebar_frame, text="Set Income",command=self.sidebar_button_event)
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=(100,0))
-        self.sidebar_button_2 = ctk.CTkButton(master.sidebar_frame,text="Make A Transaction", command=self.sidebar_button_event)
+        self.sidebar_button_2 = ctk.CTkButton(master.sidebar_frame,text="Make A Transaction", command=self.makeTransaction)
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
         self.sidebar_button_3 = ctk.CTkButton(master.sidebar_frame,text="Set Budget", command=self.sidebar_button_event)
         self.sidebar_button_3.grid(row=3, column=0, padx=20)
@@ -64,6 +65,9 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
     def sidebar_button_event(self):
         print("sidebar_button click")
+
+    def makeTransaction(self):
+        self.transactionFrame = TransactionFrame(self)
 
 
 
