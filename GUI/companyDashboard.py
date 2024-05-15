@@ -33,28 +33,28 @@ class CompanyDashboard(ctk.CTkScrollableFrame):
 
         self.incomeLabel = ctk.CTkLabel(self.summaryFrame, text="Income", font=ctk.CTkFont(size=20, weight="bold"))
         self.incomeLabel.grid(row=0, column=0, padx=10, pady=(10, 10), sticky="ew")
-        self.income = ctk.CTkLabel(self.summaryFrame, text="$43,300", font=ctk.CTkFont(size=20))
+        self.income = ctk.CTkLabel(self.summaryFrame, text="$193,540", font=ctk.CTkFont(size=20))
         self.income.grid(row=1, column=0, sticky="ew")
 
         self.expenseLabel = ctk.CTkLabel(self.summaryFrame, text="Expense", font=ctk.CTkFont(size=20, weight="bold"))
         self.expenseLabel.grid(row=0, column=1, padx=10, pady=(10, 10), sticky="ew")
-        self.expense = ctk.CTkLabel(self.summaryFrame, text="$12,300", font=ctk.CTkFont(size=20))
+        self.expense = ctk.CTkLabel(self.summaryFrame, text="$44,980", font=ctk.CTkFont(size=20))
         self.expense.grid(row=1, column=1, sticky="ew")
 
         self.balanceLabel = ctk.CTkLabel(self.summaryFrame, text="Balance", font=ctk.CTkFont(size=20, weight="bold"))
         self.balanceLabel.grid(row=0, column=2, padx=10, pady=(10, 10), sticky="ew")
-        self.balance = ctk.CTkLabel(self.summaryFrame, text="$"+str(self.money), font=ctk.CTkFont(size=20))
+        self.balance = ctk.CTkLabel(self.summaryFrame, text="$384,930", font=ctk.CTkFont(size=20))
         self.balance.grid(row=1, column=2, sticky="ew")
 
         self.transactionLabel = ctk.CTkLabel(self.summaryFrame, text="Transactions", font=ctk.CTkFont(size=20, weight="bold"))
         self.transactionLabel.grid(row=0, column=3, padx=10, pady=(10, 10), sticky="ew")
-        self.transaction = ctk.CTkLabel(self.summaryFrame, text=str(self.noOfTransactions), font=ctk.CTkFont(size=20))
+        self.transaction = ctk.CTkLabel(self.summaryFrame, text="1093", font=ctk.CTkFont(size=20))
         self.transaction.grid(row=1, column=3, sticky="ew")
 
         fig = plt.Figure(figsize=(10, 4), dpi=100)
         ax = fig.add_subplot(111)
         values = [15.76, 12.79, 10.93, 10.40, 8.87, 8.49, 7.59, 6.52, 5.92, 12.73]
-        labels = ["Mortgage/Rent", "Food", "Utilities", "Bills", "Shopping", "Transport", "Insurance", "Health Care", "Clothing", "Others"]
+        labels = ["Office Rent", "Marketing", "Utilities", "Bills", "R&D", "Logistics", "Insurance", "Health Care", "Salaries", "Others"]
         wedges, texts = ax.pie(values, labels=labels, wedgeprops=dict(width=0.3))
         ax.axis('equal')
         ax.legend(wedges, [f'{l} ({v}%)' for l, v in zip(labels, values)],
@@ -66,11 +66,11 @@ class CompanyDashboard(ctk.CTkScrollableFrame):
         canvas.get_tk_widget().grid(row=1, column=0, sticky="nsew", padx = (10,10))
 
         recent_expenses = [
-            {"date": "11/30/2017", "category": "Food", "payment": "Debit Card", "description": "Palmetto Cheese, Mint julep", "amount": "$6", "type": "minus"},
-            {"date": "11/30/2017", "category": "Transportation", "payment": "Debit Card", "description": "Other vehicle expenses", "amount": "$7", "type": "minus"},
-            {"date": "11/30/2017", "category": "Housing", "payment": "Credit Card", "description": "Laundry and cleaning supplies", "amount": "$20", "type": "minus"},
-            {"date": "11/30/2017", "category": "Extra income", "payment": "Cash", "description": "Income from Sale", "amount": "$110", "type": "plus"},
-            {"date": "11/30/2017", "category": "Food", "payment": "Credit Card", "description": "Muffuletta sandwich, Mint julep", "amount": "$10", "type": "minus"}
+            {"date": "05/01/2024", "category": "Office Supplies", "payment": "Debit Card", "description": "Printer toner cartridges", "amount": "$300", "type": "minus"},
+            {"date": "05/05/2024", "category": "Software Subscription", "payment": "Credit Card", "description": "Annual Adobe Creative Cloud subscription", "amount": "$600", "type": "minus"},
+            {"date": "05/10/2024", "category": "Travel", "payment": "Credit Card", "description": "Flight tickets for business conference", "amount": "$1500", "type": "minus"},
+            {"date": "05/15/2024", "category": "Marketing", "payment": "Debit Card", "description": "Social media advertising campaign", "amount": "$1000", "type": "minus"},
+            {"date": "05/20/2024", "category": "Equipment", "payment": "Cash", "description": "New laptops for employees", "amount": "$5000", "type": "minus"}
         ]
         # Define the column headers
         headers = ["Date", "Category", "Payment", "Description", "Amount"]
