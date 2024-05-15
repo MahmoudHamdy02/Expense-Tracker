@@ -1,3 +1,4 @@
+
 class Budget:
     """
     This class represents a budget for a specific category.
@@ -18,7 +19,7 @@ class Budget:
         self.amount = amount
         self.category = category
 
-    def budgetAlery(self):
+    def budgetAlert(self):
         
         """
         Check if the budget amount is above or below a certain threshold and raise an alert if needed.

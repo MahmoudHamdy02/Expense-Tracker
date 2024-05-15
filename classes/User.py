@@ -13,7 +13,9 @@ class User:
             username: Input username
             password: Input password
         """
-        pass
+        if username == self.username and password == self.password:
+            return True
+        return False
 
     def setBudget(self, category, amount):
         """
@@ -24,3 +26,4 @@ class User:
             amount: Budget limit amount
         """
         pass
+

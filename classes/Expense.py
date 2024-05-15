@@ -10,7 +10,7 @@ class Expense:
         date(date): The date the Expense
 
     """
-  def __init__(self, amount, date, category, expenseID,name):
+def __init__(self, amount, date, category, expenseID,name):
     self.amount = amount
     self.date = date
     self.category = category
