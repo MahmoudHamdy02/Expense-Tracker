@@ -1,12 +1,12 @@
-
-import User
+from classes.User import User
+from classes.Expense import Expense
 
 class Person(User):
     """
     This is a class that represents a Person.
-    \n
+    
     Extends the User class.
- 
+
     Attributes:
         firstName (string): First name of the person
         secondName (string): Second name of the person
@@ -30,16 +30,13 @@ class Person(User):
             date: Expense date
             category: Expense category
         """
-        self.expenses.append({"amount": amount, "date": date, "category": category})
+        self.expenses.append(Expense(category=category, amount=amount, date=date, expenseID=len(self.expenses)))
 
-    
-    
     def viewExpenses(self):
         """
         Views all expenses for the person
         """
         return self.expenses
-
 
     def editExpense(self, expenseID, newAmount, newDate) -> None:
         """
@@ -50,20 +47,21 @@ class Person(User):
             newAmount: New expense amount
             newDate: New expense date
         """
-        for expense in self.expenses:
-            if expense["expense_id"] == expenseID:
-                expense["amount"] = newAmount
-                expense["date"] = newDate
-                break
+        if expenseID < len(self.expenses):
+            self.expenses[expenseID].editExpense(amount=newAmount, date=newDate)
 
-    def deleteExpense(self, expenseID)-> None:
-        """
-        Deletes an expense for the person
 
-        Args:
-            expenseID: Expense ID to be deleted
-        """
-        self.expenses = [expense for expense in self.expenses if expense["expense_id"] != expenseID]
+    def deleteExpense(self, expenseID: int) -> None:
+            """
+            Deletes an expense for the person
+
+            Args:
+                expenseID (int): The ID of the expense to be deleted
+
+            Returns:
+                None
+            """
+            self.expenses = [expense for expense in self.expenses if expense["expense_id"] != expenseID]
         
 
     def viewSavings(self)-> float:
