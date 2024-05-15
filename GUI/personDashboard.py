@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from GUI.transactionFrame import TransactionFrame
 
 ctk.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 ctk.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -13,6 +14,11 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
+        self.transactionFrame = None
+
+        self.money = 3100
+        self.noOfTransactions = 100
+
         self.summaryFrame = ctk.CTkFrame(self, height=100)
         self.summaryFrame.grid(row=0, column=0, sticky="nsew", padx = (10,10))
         self.summaryFrame.grid_columnconfigure((0,1,2,3),weight=1)
@@ -22,7 +28,7 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
         self.sidebar_button_1 = ctk.CTkButton(master.sidebar_frame, text="Set Income",command=self.sidebar_button_event)
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=(100,0))
-        self.sidebar_button_2 = ctk.CTkButton(master.sidebar_frame,text="Make A Transaction", command=self.sidebar_button_event)
+        self.sidebar_button_2 = ctk.CTkButton(master.sidebar_frame,text="Make A Transaction", command=self.makeTransaction)
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
         self.sidebar_button_3 = ctk.CTkButton(master.sidebar_frame,text="Set Budget", command=self.sidebar_button_event)
         self.sidebar_button_3.grid(row=3, column=0, padx=20)
@@ -39,12 +45,12 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
         self.balanceLabel = ctk.CTkLabel(self.summaryFrame, text="Balance", font=ctk.CTkFont(size=20, weight="bold"))
         self.balanceLabel.grid(row=0, column=2, padx=10, pady=(10, 10), sticky="ew")
-        self.balance = ctk.CTkLabel(self.summaryFrame, text="$31,000", font=ctk.CTkFont(size=20))
+        self.balance = ctk.CTkLabel(self.summaryFrame, text="$"+str(self.money), font=ctk.CTkFont(size=20))
         self.balance.grid(row=1, column=2, sticky="ew")
 
         self.transactionLabel = ctk.CTkLabel(self.summaryFrame, text="Transactions", font=ctk.CTkFont(size=20, weight="bold"))
         self.transactionLabel.grid(row=0, column=3, padx=10, pady=(10, 10), sticky="ew")
-        self.transaction = ctk.CTkLabel(self.summaryFrame, text="20", font=ctk.CTkFont(size=20))
+        self.transaction = ctk.CTkLabel(self.summaryFrame, text=str(self.noOfTransactions), font=ctk.CTkFont(size=20))
         self.transaction.grid(row=1, column=3, sticky="ew")
 
         fig = plt.Figure(figsize=(10, 4), dpi=100)
@@ -104,6 +110,19 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
     def sidebar_button_event(self):
         print("sidebar_button click")
+
+    def makeTransaction(self):
+        if self.transactionFrame is None or not self.transactionFrame.winfo_exists():
+            self.transactionFrame = TransactionFrame(self)
+            self.transactionFrame.attributes("-topmost","true")
+        else:
+            self.transactionFrame.focus()
+
+    def doneTransaction(self, amount):
+        self.money -=amount
+        self.noOfTransactions += 1
+        self.balance.configure(text=f"{self.money}")
+        self.transaction.configure(text=f"{self.noOfTransactions}")
 
 
 
