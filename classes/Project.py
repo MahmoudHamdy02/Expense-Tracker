@@ -18,7 +18,7 @@ class Project:
 
     def addExpense(self, amount, date, category):
 
-         """
+        """
         Add an expense to the project.
 
         Args:
@@ -30,7 +30,7 @@ class Project:
 
     def editExpense(self, expenseID, newAmount, newDate):
 
-         """
+        """
         Edit an existing expense in the project.
 
         Args:
