@@ -14,6 +14,11 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
+        self.transactionFrame = None
+
+        self.money = 3100
+        self.noOfTransactions = 100
+
         self.summaryFrame = ctk.CTkFrame(self, height=100)
         self.summaryFrame.grid(row=0, column=0, sticky="nsew", padx = (10,10))
         self.summaryFrame.grid_columnconfigure((0,1,2,3),weight=1)
@@ -40,12 +45,12 @@ class PersonDashboard(ctk.CTkScrollableFrame):
 
         self.balanceLabel = ctk.CTkLabel(self.summaryFrame, text="Balance", font=ctk.CTkFont(size=20, weight="bold"))
         self.balanceLabel.grid(row=0, column=2, padx=10, pady=(10, 10), sticky="ew")
-        self.balance = ctk.CTkLabel(self.summaryFrame, text="$31,000", font=ctk.CTkFont(size=20))
+        self.balance = ctk.CTkLabel(self.summaryFrame, text="$"+str(self.money), font=ctk.CTkFont(size=20))
         self.balance.grid(row=1, column=2, sticky="ew")
 
         self.transactionLabel = ctk.CTkLabel(self.summaryFrame, text="Transactions", font=ctk.CTkFont(size=20, weight="bold"))
         self.transactionLabel.grid(row=0, column=3, padx=10, pady=(10, 10), sticky="ew")
-        self.transaction = ctk.CTkLabel(self.summaryFrame, text="20", font=ctk.CTkFont(size=20))
+        self.transaction = ctk.CTkLabel(self.summaryFrame, text=str(self.noOfTransactions), font=ctk.CTkFont(size=20))
         self.transaction.grid(row=1, column=3, sticky="ew")
 
         fig = plt.Figure(figsize=(10, 4), dpi=100)
@@ -107,7 +112,17 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         print("sidebar_button click")
 
     def makeTransaction(self):
-        self.transactionFrame = TransactionFrame(self)
+        if self.transactionFrame is None or not self.transactionFrame.winfo_exists():
+            self.transactionFrame = TransactionFrame(self)
+            self.transactionFrame.attributes("-topmost","true")
+        else:
+            self.transactionFrame.focus()
+
+    def doneTransaction(self, amount):
+        self.money -=amount
+        self.noOfTransactions += 1
+        self.balance.configure(text=f"{self.money}")
+        self.transaction.configure(text=f"{self.noOfTransactions}")
 
 
 
