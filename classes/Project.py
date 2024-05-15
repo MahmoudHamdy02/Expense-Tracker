@@ -1,3 +1,4 @@
+
 class Project:
 
     """
@@ -15,9 +16,9 @@ class Project:
         self.projectID = projectID
         self.startDate = startDate
         self.endDate = endDate
+        self.expenses = []  # Initialize an empty list to store expenses
 
-    def addExpense(self, amount, date, category):
-
+    def add_expense(self, amount: float, date: str, category: str) -> None:
         """
         Add an expense to the project.
 
@@ -26,23 +27,24 @@ class Project:
             date (str): The date of the expense in YYYY-MM-DD format.
             category (str): The category of the expense.
         """
-        pass
+        self.expenses.append({"amount": amount, "date": date, "category": category})
 
-    def editExpense(self, expenseID, newAmount, newDate):
-
+    def edit_expense(self, expense_id: int, new_amount: float, new_date: str) -> None:
         """
         Edit an existing expense in the project.
 
         Args:
-            expenseID (int): The index of the expense to edit.
-            newAmount (float): The new amount of the expense.
-            newDate (str): The new date of the expense in YYYY-MM-DD format.
+            expense_id (int): The index of the expense to edit.
+            new_amount (float): The new amount of the expense.
+            new_date (str): The new date of the expense in YYYY-MM-DD format.
         """
-        pass
+        if expense_id < len(self.expenses):
+            self.expenses[expense_id]["amount"] = new_amount
+            self.expenses[expense_id]["date"] = new_date
 
-    def viewProjectExpenses(self):
+
+    def view_project_expenses(self) -> list:
         """
         View all expenses associated with the project.
         """
-        pass
-
+        return self.expenses

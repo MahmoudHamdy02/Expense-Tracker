@@ -1,3 +1,4 @@
+
 class Category:
     """
     This is a class that represents a category where you can add your expenses 
@@ -5,15 +6,18 @@ class Category:
     Attributes:
         name(string): The name of the category
         description(string): The description of the category
+        expenses(list): A list to store category expenses
     """
     def __init__(self, name, description):
-      self.name = name
-      self.description = description
+        self.name = name
+        self.description = description
+        self.expenses = []  # Initialize an empty list to store expenses
 
-    def calculateTotalExpenses(self):
-      """
-      This function calculates the total expense for each category
-      """
+    def calculate_total_expenses(self) -> float:
+        """
+        This function calculates the total expense for each category
 
-      pass
-
+        Returns:
+            float: The total expense for the category
+        """
+        return sum(expense["amount"] for expense in self.expenses)

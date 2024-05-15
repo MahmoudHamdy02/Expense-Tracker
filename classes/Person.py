@@ -1,3 +1,4 @@
+
 import User
 
 class Person(User):
@@ -12,14 +13,15 @@ class Person(User):
         income (string): Monthly income of the person
         savings (string): Savings amount of the person
     """
-    def __init__(self, firstName, secondName, income, savings):
-        super().__init__()
-        self.firstName = firstName
-        self.secondName = secondName
+    def __init__(self, first_name: str, second_name: str, income: float, savings: float):
+        super().__init__("person", "password", "email")  # Initialize User attributes
+        self.first_name = first_name
+        self.second_name = second_name
         self.income = income
         self.savings = savings
+        self.expenses = []  # Store expenses in a list
 
-    def addExpenses(self, amount, date, category):
+    def addExpenses(self, amount, date, category) -> None:
         """
         Adds an expense for the person
 
@@ -28,15 +30,18 @@ class Person(User):
             date: Expense date
             category: Expense category
         """
-        pass
+        self.expenses.append({"amount": amount, "date": date, "category": category})
+
+    
     
     def viewExpenses(self):
         """
         Views all expenses for the person
         """
-        pass
+        return self.expenses
 
-    def editExpense(self, expenseID, newAmount, newDate):
+
+    def editExpense(self, expenseID, newAmount, newDate) -> None:
         """
         Edits details of an expense for the person
 
@@ -45,19 +50,35 @@ class Person(User):
             newAmount: New expense amount
             newDate: New expense date
         """
-        pass
+        for expense in self.expenses:
+            if expense["expense_id"] == expenseID:
+                expense["amount"] = newAmount
+                expense["date"] = newDate
+                break
 
-    def deleteExpense(self, expenseID):
+    def deleteExpense(self, expenseID)-> None:
         """
         Deletes an expense for the person
 
         Args:
             expenseID: Expense ID to be deleted
         """
-        pass
+        self.expenses = [expense for expense in self.expenses if expense["expense_id"] != expenseID]
+        
 
-    def viewSavings(self):
+    def viewSavings(self)-> float:
         """
         Views current savings amount of the person
         """
-        pass
+        return self.savings
+        
+
+
+
+
+
+
+
+
+
+

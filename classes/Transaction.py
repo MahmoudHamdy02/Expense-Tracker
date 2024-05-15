@@ -1,3 +1,6 @@
+import datetime
+from classes.Category import Category
+
 class Transaction:
     """
     This class represents A transaction made by the user
@@ -9,42 +12,56 @@ class Transaction:
         type(string): The type of transaction
         category(string): The category the transaction belongs to
     """
-    
-
-
-
-    def __init__(self, amount, timestamp, type, transactionID, category):
+    def __init__(
+            self, 
+            amount: int, 
+            timestamp: datetime, 
+            type: str, 
+            transactionID: int, 
+            category: Category
+            ):
         self.amount = amount
         self.timestamp = timestamp
         self.type = type
         self.transactionID = transactionID
         self.category = category
 
-    def viewTransactions(self):
+    def view_transactions(self) -> None:
         """
-        view all transactions made by the user
+        View the transactions made by the user
         """
-        pass
+        print(f"Transaction ID: {self.transactionID}")
+        print(f"Amount: {self.amount}")
+        print(f"Timestamp: {self.timestamp}")
+        print(f"Type: {self.type}")
+        print(f"Category: {self.category}\n")
+        print(f"Description: {self.description}\n")
 
-    def send(self, amount, description, category):
+    def send(self, amount: float, description: str, category: str) -> None:
         """
-        make a transaction
+        Make a transaction
 
-         Args:
+        Args:
             amount (float): The amount of money to send.
             description (str): Description or note for the transaction.
             category (str): The category of the transaction.
-        
         """
-        pass
+        self.amount = amount
+        self.timestamp = datetime.datetime.now()
+        self.type = "send"
+        self.category = category
+        self.description = description
 
-    def recieve(self, amount, description):
+    def receive(self, amount: float, description: str) -> None:
         """
-        recieve a transaction
+        Receive a transaction
 
         Args:
             amount (float): The amount of money received.
             description (str): Description or note for the transaction.
         """
-        pass
-
+        self.amount = amount
+        self.timestamp = datetime.datetime.now()
+        self.type = "receive"
+        self.category = "income"
+        self.description = description
