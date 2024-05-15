@@ -1,3 +1,4 @@
+from classes.Expense import Expense
 
 class Category:
     """
@@ -8,7 +9,7 @@ class Category:
         description(string): The description of the category
         expenses(list): A list to store category expenses
     """
-    def __init__(self, name, description):
+    def __init__(self, name: str, description: str):
         self.name = name
         self.description = description
         self.expenses = []  # Initialize an empty list to store expenses
@@ -20,4 +21,4 @@ class Category:
         Returns:
             float: The total expense for the category
         """
-        return sum(expense["amount"] for expense in self.expenses)
+        return sum(expense.getAmount() for expense in self.expenses)

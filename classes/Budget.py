@@ -1,3 +1,4 @@
+from classes.Category import Category
 
 class Budget:
     """
@@ -5,16 +6,16 @@ class Budget:
 
     Attributes:
         amount (float): The amount allocated for the budget.
-        category (str): The category of the budget.
+        category (Category): The category of the budget.
     """
 
-    def __init__(self, amount, category):
+    def __init__(self, amount: float, category: Category):
         """
         Initialize a new Budget instance with the given attributes.
 
         Args:
             amount (float): The amount allocated for the budget.
-            category (str): The category of the budget.
+            category (Category): The category of the budget.
         """
         self.amount = amount
         self.category = category
@@ -27,5 +28,4 @@ class Budget:
         Returns:
             str: A message indicating whether the budget is above or below the threshold.
         """
-
-        pass
+        return "You're above your budget !"
