@@ -1,4 +1,3 @@
-from classes.Expense import Expense
 
 class Category:
     """

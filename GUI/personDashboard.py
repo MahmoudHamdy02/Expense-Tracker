@@ -22,16 +22,16 @@ class PersonDashboard(ctk.CTkScrollableFrame):
         self.summaryFrame = ctk.CTkFrame(self, height=100)
         self.summaryFrame.grid(row=0, column=0, sticky="nsew", padx = (10,10))
         self.summaryFrame.grid_columnconfigure((0,1,2,3),weight=1)
-        self.summaryFrame.grid_rowconfigure((0,1), weight=1)
+        self.summaryFrame.grid_rowconfigure((0,1, 2, 3, 4), weight=1)
 
         self.Person = Person
 
         self.sidebar_button_1 = ctk.CTkButton(master.sidebar_frame, text="Set Income",command=self.sidebar_button_event)
-        self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=(100,0))
+        self.sidebar_button_1.grid(row=3, column=0, padx=20)
         self.sidebar_button_2 = ctk.CTkButton(master.sidebar_frame,text="Make A Transaction", command=self.makeTransaction)
-        self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
+        self.sidebar_button_2.grid(row=4, column=0, padx=20, pady=10)
         self.sidebar_button_3 = ctk.CTkButton(master.sidebar_frame,text="Set Budget", command=self.sidebar_button_event)
-        self.sidebar_button_3.grid(row=3, column=0, padx=20)
+        self.sidebar_button_3.grid(row=5, column=0, padx=20)
 
         self.incomeLabel = ctk.CTkLabel(self.summaryFrame, text="Income", font=ctk.CTkFont(size=20, weight="bold"))
         self.incomeLabel.grid(row=0, column=0, padx=10, pady=(10, 10), sticky="ew")

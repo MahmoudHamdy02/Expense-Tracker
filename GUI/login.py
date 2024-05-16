@@ -3,6 +3,8 @@ import tkinter.messagebox
 import customtkinter as ctk
 from GUI.personDashboard import PersonDashboard
 from GUI.companyDashboard import CompanyDashboard
+from classes.Person import Person
+from CTkMessagebox import CTkMessagebox
 
 class Login(ctk.CTkFrame):
     def __init__(self, master):
@@ -32,11 +34,13 @@ class Login(ctk.CTkFrame):
     def login(self):
         email = self.email_input.get()
         if email == "" or email is None:
+            CTkMessagebox(self, icon="warning", message="Please enter an email address", title="Error")
             return
         self.destroy()
         if "company" in email:
             self.master.dashboard = CompanyDashboard(self.master)
         else:
+            person = Person("John", "Doe", 1000.0, 200.0)
             self.master.dashboard = PersonDashboard(self.master, None)
         self.master.dashboard.grid(row=0, column=1, rowspan=4, sticky="nsew")
 
