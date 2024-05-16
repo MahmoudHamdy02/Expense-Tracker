@@ -25,3 +25,31 @@ The Expense Tracker application is a versatile tool designed to help both indivi
 - **Department Reports**: Customized reports on departmental expenses.
 - **Quarterly Reports**: Automated quarterly financial reports.
 - **Employee Payments**: Pay employees directly through the app.
+
+ ## Installation Instructions
+
+To install the Expense Tracker application, follow these steps:
+
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/yourusername/expense-tracker.git
+    ```
+
+2. **Install Required Dependencies**:
+    - install all the required libraries and packages inside requirements.txt.
+    ```bash
+    pip install requirements.txt
+    ```
+3. **Run the Application**:
+    ```bash
+    python main.py
+    ```
+## Contributers
+
+- Ahmed Abdelrahman Ahmed Abdelrahman    2002126
+- Mahmoud Hamdy Mohamed Mostafa          2001300
+- Mariam Hesham Abd El-Hamid             2000943
+- Marten Ehab Fouad                      2101642
+- Mohammed Yasser Mohammed               2002085
+- Omar Salah Mansour Abdelkader          2002081
+- Sara Ashraf Abdelhakam                 2000337
