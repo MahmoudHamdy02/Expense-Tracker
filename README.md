@@ -32,7 +32,7 @@ To install the Expense Tracker application, follow these steps:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/expense-tracker.git
+    git clone https://github.com/MahmoudHamdy02/Expense-Tracker.git
     ```
 
 2. **Install Required Dependencies**:
