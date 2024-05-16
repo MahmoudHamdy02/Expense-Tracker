@@ -1,6 +1,7 @@
 # Expense Tracker
 
 Our team designed a desktop application that tracks the expenses of both individuals and companies or startups, and we developed a GUI for it.
+![Login Page](gui_1.png)
 
 ## Description
 
@@ -50,7 +51,8 @@ To install the Expense Tracker application, follow these steps:
 1. **Login or Sign Up**:
    - Upon running the application, a login page will open. If you do not have an account, you can choose to sign up as a company or as an individual user.
    
-   ![Login Page](gui_1.png)
+   ![SignUP User](gui_4.png)
+   ![SignUP Company](gui_5.png)
 
 3. **Dashboard**:
    - After logging in, the dashboard for the user or company will open, displaying various options and features.
