@@ -12,7 +12,7 @@ class Login(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-
+        self.signup_window = None
         frame = ctk.CTkFrame(self)
         frame.place(relx=0.5, rely=0.5, anchor="c")
 
@@ -63,22 +63,27 @@ class Login(ctk.CTkFrame):
         self.signup("Company")
     
     def signup(self, user_type):
-        signup_window = ctk.CTkToplevel(self)
-        signup_window.title(f"Sign Up as {user_type}")
-        signup_window.geometry("400x300")
 
-        frame = ctk.CTkFrame(signup_window)
-        frame.pack(pady=20, padx=20)
+        if self.signup_window is None or not self.signup_window.winfo_exists():
+            self.signup_window = ctk.CTkToplevel(self)
+            self.signup_window.attributes("-topmost", "true")
+            self.signup_window.title(f"Sign Up as {user_type}")
+            self.signup_window.geometry("400x300")
 
-        email_label = ctk.CTkLabel(frame, text="Email:")
-        email_label.pack()
-        email_entry = ctk.CTkEntry(frame)
-        email_entry.pack()
+            frame = ctk.CTkFrame(self.signup_window)
+            frame.pack(pady=20, padx=20)
 
-        password_label = ctk.CTkLabel(frame, text="Password:")
-        password_label.pack()
-        password_entry = ctk.CTkEntry(frame, show="*")
-        password_entry.pack()
+            email_label = ctk.CTkLabel(frame, text="Email:")
+            email_label.pack()
+            email_entry = ctk.CTkEntry(frame)
+            email_entry.pack()
+
+            password_label = ctk.CTkLabel(frame, text="Password:")
+            password_label.pack()
+            password_entry = ctk.CTkEntry(frame, show="*")
+            password_entry.pack()
+        else:
+            self.transactionFrame.focus()
 
         def submit_signup():
             email = email_entry.get()
@@ -90,9 +95,8 @@ class Login(ctk.CTkFrame):
             
             # Add the new user credentials to the user_database
             user_database.append((email, password))
-            signup_window.destroy()
             CTkMessagebox(self, icon="info", message=f"{user_type} account created successfully!", title="Success")
-            
+            self.signup_window.destroy()     
             
 
         signup_button = ctk.CTkButton(frame, text="Sign Up", command=submit_signup)
