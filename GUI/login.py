@@ -48,7 +48,7 @@ class Login(ctk.CTkFrame):
             return
         self.destroy()
         
-        if "company" in email:
+        if self.user_type == "Company":
             self.master.dashboard = CompanyDashboard(self.master)
         else:
             person = Person("John", "Doe", 1000.0, 200.0)
@@ -63,7 +63,7 @@ class Login(ctk.CTkFrame):
         self.signup("Company")
     
     def signup(self, user_type):
-
+        self.user_type = user_type
         if self.signup_window is None or not self.signup_window.winfo_exists():
             self.signup_window = ctk.CTkToplevel(self)
             self.signup_window.attributes("-topmost", "true")
