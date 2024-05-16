@@ -36,7 +36,7 @@ To install the Expense Tracker application, follow these steps:
     ```
 
 2. **Install Required Dependencies**:
-    - install all the required libraries and packages inside requirements.txt.
+    All the required libraries and packages are inside requirements.txt.
     ```bash
     pip install requirements.txt
     ```
