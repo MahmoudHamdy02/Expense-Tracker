@@ -1,6 +1,7 @@
 # Expense Tracker
 
 Our team designed a desktop application that tracks the expenses of both individuals and companies or startups, and we developed a GUI for it.
+
 <img src="gui_1.png" alt="Login Page" width="600">
 
 ## Description
