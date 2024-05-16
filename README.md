@@ -44,6 +44,25 @@ To install the Expense Tracker application, follow these steps:
     ```bash
     python main.py
     ```
+
+## Usage
+
+1. **Login or Sign Up**:
+   - Upon running the application, a login page will open. If you do not have an account, you can choose to sign up as a company or as an individual user.
+   
+   ![Login Page](gui_1.png)
+
+3. **Dashboard**:
+   - After logging in, the dashboard for the user or company will open, displaying various options and features.
+
+   ![User Dashboard](gui_2.png)
+
+   ![Company Dashboard](company_dark.png)
+
+5. **Explore Features**:
+   - Navigate through the GUI to add, edit, and manage expenses.
+   - Utilize the reporting features to generate monthly and quarterly reports.
+
 ## Contributers
 
 - Ahmed Abdelrahman Ahmed Abdelrahman    2002126
