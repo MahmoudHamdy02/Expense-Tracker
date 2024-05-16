@@ -120,7 +120,7 @@ class TransactionFrame(ctk.CTkToplevel):
         self.master.doneTransaction(0)
         name = str(self.recieve_name_entry.get())
         self.destroy()
-        CTkMessagebox(title="Confirm Transaction", message=f"A Request jas been sent to {name}", icon="check")
+        CTkMessagebox(title="Confirm Transaction", message=f"A Request had been been sent to {name}", icon="check")
 
     def select_from_contacts(self):
         # Code to select from contacts goes here
