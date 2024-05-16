@@ -55,13 +55,13 @@ To install the Expense Tracker application, follow these steps:
    <img src="gui_5.png" alt="SignUPCompany" width="400">
 
 
-3. **Dashboard**:
+2. **Dashboard**:
    - After logging in, the dashboard for the user or company will open, displaying various options and features.
   <img src="gui_3.png" alt="UserDashboard " width="600">
   <img src="company_dark.png" alt="CompanyDashboard" width="600">
 
 
-5. **Explore Features**:
+3. **Explore Features**:
    - Navigate through the GUI to add, edit, and manage expenses.
    - Utilize the reporting features to generate monthly and quarterly reports.
 
