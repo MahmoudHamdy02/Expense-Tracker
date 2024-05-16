@@ -55,7 +55,7 @@ To install the Expense Tracker application, follow these steps:
 3. **Dashboard**:
    - After logging in, the dashboard for the user or company will open, displaying various options and features.
 
-   ![User Dashboard](gui_2.png)
+   ![User Dashboard](gui_3.png)
 
    ![Company Dashboard](company_dark.png)
 
