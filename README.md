@@ -2,7 +2,7 @@
 
 Our team designed a desktop application that tracks the expenses of both individuals and companies or startups, and we developed a GUI for it.
 
-<img src="gui_1.png" alt="Login Page" width="600">
+<img src="gui_1.png" alt="Login Page" width="700">
 
 ## Description
 
@@ -57,8 +57,8 @@ To install the Expense Tracker application, follow these steps:
 
 3. **Dashboard**:
    - After logging in, the dashboard for the user or company will open, displaying various options and features.
-  <img src="gui_3.png" alt="UserDashboard " width="300">
-  <img src="company_dark.png" alt="CompanyDashboard" width="300">
+  <img src="gui_3.png" alt="UserDashboard " width="600">
+  <img src="company_dark.png" alt="CompanyDashboard" width="600">
 
 
 5. **Explore Features**:
