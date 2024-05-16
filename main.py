@@ -15,7 +15,8 @@ class MainWindow(customtkinter.CTk):
         # configure window
         self.title("Expense Tracker App")
         self.geometry(f"{1100}x{580}")
-        self.iconbitmap(os.path.join("GUI", "images", "accounting.ico"))
+        if os.name == "nt":
+            self.iconbitmap(os.path.join("GUI", "images", "accounting.ico"))
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(1, weight=1)
