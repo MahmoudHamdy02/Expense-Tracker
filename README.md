@@ -36,7 +36,20 @@ To install the Expense Tracker application, follow these steps:
     ```bash
     git clone https://github.com/MahmoudHamdy02/Expense-Tracker.git
     ```
-
+2. **Create virtual environment**:
+   To avoid conflicts with other package versions, it is recommended to use venv to create a virtual environment to work in.
+   ```bash
+   pip install venv
+   python -m venv expense-tracker-env
+   ```
+   To activate the environment on Linux:
+   ```bash
+   source expense-tracker-env/bin/activate
+   ```
+   To activate the environment on Windows:
+   ```bash
+   expense-tracker-env\Scripts\activate.bat
+   ```
 2. **Install Required Dependencies**:
     All the required libraries and packages are inside requirements.txt.
     ```bash
